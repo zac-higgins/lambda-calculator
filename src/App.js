@@ -8,7 +8,7 @@ import Specials from './components/ButtonComponents/SpecialButtons/Specials';
 import Display from './components/DisplayComponents/Display';
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo";
-import { operators } from "./data";
+
 
 
 
@@ -18,21 +18,23 @@ function App() {
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
-  
   const [value, setValue] = useState(0);
+  
 
   return (
     <div className="container">
       <Logo />
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-        <Display />
-        <div className="specialAndNumbers">
-        <Specials />
-        <Numbers />
-        </div>
-        <div className="operators">
-        <Operators />
+        <Display value={value} />
+        <div className="buttons">
+          <div className="specialAndNumbers">
+            <Specials />
+            <Numbers setValue={setValue} />
+          </div>
+          <div className="operators">
+            <Operators className="operatorButtons" />
+          </div>
         </div>
       </div>
     </div>
