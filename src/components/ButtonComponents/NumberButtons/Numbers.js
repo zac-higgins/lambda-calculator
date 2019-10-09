@@ -17,7 +17,7 @@ const Numbers = (props) => {
        component matching the name on the provided file. Pass
        it any props needed by the child component*/}
       {numbersArray.map(number => {
-        return <NumberButton number={number} />
+        return <NumberButton number={number} setValue={props.setValue} />
       })}
     </div>
   );
